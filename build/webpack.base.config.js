@@ -1,4 +1,4 @@
-//导入文件
+ //导入文件
 const path = require('path');
 const entry = require('./entry.config');
 const htmls = require('./web.config');
@@ -24,16 +24,12 @@ let config = {
 	},
 	module: {
 	    rules: [
-			// {
-			// 	test: /\.html$/,//处理html模板
-			// 	use: 'html-loader',
-			// },
 			{
-				test: /\.vue$/,//处理html模板
+				test: /\.vue$/,//处理vue文件
 				use: {
 					loader:'vue-loader',
 					options: {
-						loaders: {
+						loaders: {//处理vue文件中不同类型的样式
 							css:['css-loader', 'postcss-loader'],
 							scss: ['css-loader', 'postcss-loader','sass-loader']
 						}

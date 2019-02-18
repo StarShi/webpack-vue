@@ -11,6 +11,10 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 // 获取src/views下的html文件
 let files = glob.sync(path.resolve(__dirname,'../src/views/**/*.vue'));
 let newHtmls = [];
+let title = {
+	contact: 'contact页面',
+	index: 'index页面'
+};
 for(let item of files){
 	let patternUrl = /.*(\/src\/.*?\.vue)/;//获取路径
 	let patternName = /.*\/(.*?)\.vue$/; //获取名字
@@ -21,6 +25,7 @@ for(let item of files){
 		filename:name+'.html',
 		template:'index.html',
 		inject:true,//默认true插入body,head | body | false 
+		title:title[name],
 		minify:{
 			// collapseWhitespace: true,//移除空格
 			removeComments: true,//移除注释
