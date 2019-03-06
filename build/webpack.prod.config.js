@@ -22,9 +22,10 @@ let prodWebpackConfig = merge(baseWebpackConfig,{
 			filename: '[name]/css/[name].[hash].css',//文件位置，名字
 			chunkFilename: '[id].[hash].css',
 		}),
-		new Purify({         //css优化去重去无效代码
-	        	paths:glob.sync(path.join(__dirname,"src/views/*.html"))
-	    })
+// 		new Purify({         //css优化去重去无效代码
+// 	        	paths:glob.sync(path.join(__dirname,"src/views/*.html"))
+// 	        })
+// 		注释去除无效的优化，不然自定义组件的样式无法正常打包
 	],
 	module:{
 		rules:[
